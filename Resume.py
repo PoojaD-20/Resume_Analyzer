@@ -232,8 +232,12 @@ if uploaded_file:
     match = match_resume_to_job(text, jd_input) if jd_input else None
 
     st.subheader("Results")
-    st.write("**Skills:**", skills)
-    st.write("**Suggested Roles:**", roles)
-    st.write("**Resume Score:**", score)
+    st.markdown("**Skills:**")
+    for skill in skills :
+        st.markdown(f"- 🧠 {skill.capitalize()}")
+    st.markdown("**Suggested Roles:**")
+    for role in roles :
+        st.markdown(f"- 👤 {role}")
+    st.markdown(f"**Resume Score:** 📄 {score}")
     if match:
-        st.write("**Job Match %:**", match)
+        st.markdown(f"**Job Match %:** 🔍 {match}%")
